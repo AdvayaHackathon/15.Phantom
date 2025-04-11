@@ -1,36 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menstrual Health</title>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>herBuddy</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet" />
 </head>
 <body>
-    <header>
-        <h1>Menstrual Health & Support</h1>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="community.html">Community</a>
-            <a href="selfcare.html">Self-Care</a>
-            <a href="contact.html">Contact</a>
-        </nav>
+    <header class="main-header">
+        <h1 class="site-title">herBuddy</h1>
+        <img src="logo_herbuddy.png" alt="herBuddy Logo" class="logo" />
     </header>
 
-    <section class="content">
-        <h2>Understanding Your Period</h2>
-        <p>Periods are a natural part of life. Learn how to take care of yourself and connect with others.</p>
+    <!-- Top-left vertical toolbar -->
+    <nav class="top-left-toolbar">
+        <a href="index.html" class="active">🏠 Home</a>
+        <a href="ai-bot.html">🤖 AI Bot</a>
+        <a href="community.html">💬 Community</a>
+        <a href="selfcare.html">📝 Self Assessment</a>
+        <a href="content.html">Facts & FAQs</a>
         
-        <h2>Chat with Our Period Bot</h2>
-        <div class="chatbox">
-            <div class="chatbox-messages" id="messages"></div>
-            <div class="chatbox-input">
-                <input type="text" id="userInput" placeholder="Ask about periods...">
-                <button onclick="sendMessage()">Send</button>
-            </div>
-        </div>
-    </section>
+    </nav>
 
-    <script src="script.js"></script>
+    <main class="content">
+        <section class="about-us welcome-card">
+            <div class="welcome-text">
+                <h2>Welcome to herBuddy 🌸</h2>
+                <p>
+                    herBuddy is your safe space for menstrual wellness. We’re here to help you understand your body, manage your cycle, and feel supported every step of the way — with privacy, empathy, and care.
+                </p>
+                <p>
+                    Explore our <strong>AI-powered chatbot</strong> for emotional comfort and answers to sensitive questions,
+                    or post anonymously in the <strong>Community</strong> if you need to share something or get support.
+                    You can also try our <strong>Self Assessment</strong> to reflect on how you're feeling or check out <strong>Facts & FAQs</strong>
+                    to learn more about your body.
+                </p>
+    
+            </div>
+           
+        </section>
+
+        <section class="info-section horizontal-card ">
+            <div class="card-text">
+                <h2>🩸 What is the Menstrual Cycle?</h2>
+                <p>
+                    Your menstrual cycle is a natural process that prepares your body for pregnancy every month. It usually lasts between 21–35 days:
+                </p>
+                <ul>
+                    <li><strong>🩷 Menstruation:</strong> Your period – shedding the uterus lining.</li>
+                    <br>                                     
+                    <li><strong>🌱 Follicular Phase:</strong> Hormones prep your ovaries.</li>
+                    <br> 
+                    <li><strong>🥚 Ovulation:</strong> An egg is released from your ovary.</li>
+                    <br> 
+                    <li><strong>🌙 Luteal Phase:</strong> Your body prepares for pregnancy or restarts.</li>
+                </ul>
+            </div>
+            <div class="card-image">
+                <img src="Menstrual-Cycle-Phases.webp" alt="Menstrual Cycle Diagram" class="section-img" />
+            </div>
+        </section>
+
+        <section class="info-section horizontal-card">
+            <div class="card-text">
+                <h2>🧼 Menstrual Hygiene Tips</h2>
+                <ul>
+                    <li>🔄 Change pads/cups every 4–6 hours.</li>
+                    <br> 
+                    <li>🧼 Wash your hands before and after.</li>
+                    <br> 
+                    <li>🚿 Rinse with warm water — no harsh soaps.</li>
+                    <br>
+                    <li>🩲 Wear clean, breathable underwear daily.</li>
+                </ul>
+            </div>
+            <div class="card-image">
+                <img src="welcome3.jpg" alt="Hygiene Tips" class="section-img" />
+            </div>
+        </section>
+
+        <section class="info-section horizontal-card ">
+            <div class="card-text">
+            <h2>🛍️ Pads, Cups & Period Wear</h2>
+            <p>Choose the product that suits your comfort and flow:</p>
+            <ul>
+                <li><strong>🩱 Sanitary Pads:</strong> Easy to use and dispose — perfect for starters.</li>
+                <br> 
+                <li><strong>🥥 Menstrual Cups:</strong> Eco-friendly, reusable, worn internally.</li>
+                <br> 
+                <li><strong>👙 Period Underwear:</strong> Comfy and washable — absorb light to medium flow.</li>
+            </ul>
+            </div>
+            <div class="card-image">
+                <img src="welcome4.jpg" alt="Hygiene Tips" class="section-img" />
+            </div>
+        </section>
+
+        <section class="info-section">
+            <h2>💖 Why Menstrual Health Matters</h2>
+            <p>
+                Caring for your menstrual health builds confidence, reduces stress, and helps you track your body’s natural rhythm.
+                It’s about listening to your body, respecting your needs, and feeling empowered every cycle.
+            </p>
+        </section>
+
+        <section class="quick-access">
+            <h3>Need Support or Have Questions?</h3>
+            <div class="button-group">
+                <a href="community.html" class="access-button">Talk in Community 💬</a>
+                <a href="ai-bot.html" class="access-button">Chat with AI 🤖</a>
+            </div>
+        </section>
+    </main>
+  
+    
+</body>
+
+
+    <footer class="footer">
+        <p>&copy; 2025 herBuddy. All rights reserved.</p>
+    </footer>
 </body>
 </html>
