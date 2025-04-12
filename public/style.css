@@ -1,0 +1,295 @@
+/* Base styles */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #fff0f5;
+    color: #4a004a;
+}
+
+/* Header */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f98fb0;
+    padding: 20px 40px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.site-title {
+    font-family: 'Pacifico', cursive;
+    font-size: 2.8rem;
+    color: white;
+    margin: 0;
+    flex-grow: 1;
+    text-align: center;
+}
+
+.logo {
+    height: 70px;
+    width: auto;
+    object-fit: contain;
+}
+
+/* Toolbar on top-left */
+.top-left-toolbar {
+    position: fixed;
+    top: 120px;
+    left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 999;
+}
+
+.top-left-toolbar a {
+    background-color: #ffc0cb;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 8px;
+    color: #4a004a;
+    font-weight: bold;
+    text-align: center;
+    transition: background 0.3s ease;
+}
+
+.top-left-toolbar a:hover {
+    background-color: #ff99aa;
+}
+
+/* Content layout */
+.content {
+    padding: 50px 60px;
+    margin-left: 180px; /* to prevent content from overlapping with toolbar */
+}
+
+/* About section */
+.about-us h2 {
+    font-size: 2rem;
+    color: #d63384;
+}
+
+/* Quick access buttons */
+.quick-access {
+    margin-top: 40px;
+}
+
+.button-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.access-button {
+    background-color: #ff80ab;
+    color: white;
+    padding: 15px 25px;
+    border: none;
+    border-radius: 12px;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+.access-button:hover {
+    background-color: #ff4d88;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    background-color: #f98fb0;
+    padding: 15px;
+    color: white;
+    margin-top: 40px;
+}
+.section-img {
+    width: 100%;
+    max-width: 500px;
+    margin-top: 15px;
+    display: block;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.horizontal-card {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    background-color: #fff0f5;
+    border-radius: 15px;
+    padding: 2rem;
+    /box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);/
+    margin-bottom: 2rem;
+}
+
+.card-text {
+    flex: 1 1 300px;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.card-image {
+    flex: 1 1 300px;
+    display: flex;
+    justify-content: center;
+
+}
+
+.card-image img {
+    max-width: 100%;
+    height: 300px;
+    width: 300px;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+}
+
+
+
+/* Animations */
+@keyframes slideUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+.faq-section, .facts-section {
+    margin-top: 40px;
+    background-color: #ffe6f0;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+}
+
+.faq-list li {
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.fun-facts details {
+    background-color: #fff0f5;
+    margin-bottom: 15px;
+    padding: 12px 18px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.fun-facts details:hover {
+    background-color: #ffd6e8;
+}
+
+.fun-facts summary {
+    font-weight: bold;
+    font-size: 1rem;
+}
+.contact-toolbar {
+    background-color: #ffeaf1;
+    padding: 1.5rem;
+    margin-top: 2rem;
+    text-align: center;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(255, 192, 203, 0.3);
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.contact-toolbar h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #cc3366;
+}
+
+.contact-toolbar p {
+    margin-bottom: 1rem;
+    color: #444;
+}
+
+.contact-toolbar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.contact-toolbar li {
+    margin: 0.5rem 0;
+}
+
+.contact-toolbar a {
+    color: #d63384;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.contact-toolbar a:hover {
+    text-decoration: underline;
+}
+
+
+
+.subheading-text {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f98fb0;
+    padding: 20px 40px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    
+}
+
+
+#game-area {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    background: linear-gradient(#ffeaf1, #fff0f5);
+    border-radius: 20px;
+    overflow: hidden;
+    margin: 20px auto;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+}
+
+#memory-game {
+    display: grid;
+    grid-template-columns: repeat(4, 100px); /* 4 columns */
+    gap: 15px;
+    justify-content: center;
+    margin: 40px auto;
+    max-width: 440px;
+  }
+  
+  .card {
+    background-color: #ffc0cb;
+    color: #4a004a;
+    font-size: 2.5rem; /* increase size of ❔ and emojis */
+    width: 100px;
+    height: 100px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .card.flipped, .card.matched {
+    background-color: #ffe6f0;
+    transform: scale(1.1);
+  }
+  
+  .completion-message {
+    margin-top: 30px;
+    font-size: 1.2rem;
+    text-align: center;
+    color: #d63384;
+    display: none;
+  }

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Community - Share Your Story</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+  <style>
+    .post {
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      padding: 10px;
+      margin-bottom: 20px;
+      background-color: #fff;
+    }
+    .post img, .post video {
+      max-width: 100%;
+      margin-top: 10px;
+    }
+    button {
+      margin-right: 10px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+
+  <!-- Updated header with class names from style.css -->
+  <header class="main-header">
+    <h1 class="site-title">herBuddy</h1>
+    <img src="logo_herbuddy.png" alt="herBuddy Logo" class="logo" />
+    <nav class="top-left-toolbar">
+      <a href="index.html" class="active">🏠 Home</a>
+      <a href="chatbot.html">🤖 AI Bot</a>
+      <a href="assess.html">📝 Self Assessment</a>
+      <a href="faq.html">❓ Facts & FAQs</a>
+      <a href="game.html">🎮 Games </a>
+    </nav>
+  </header>
+
+  <!-- Subheading Section -->
+   <main class="content">
+  <section class="about-us welcome-card">
+    <div class="welcome-text">
+    <h2>Community - Share Your Story</h2>
+    </div>
+  </section>
+   
+
+  <!-- Main content styled using .content -->
+  <section class>
+    <h2>Share Your Story</h2>
+    <textarea id="postInput" placeholder="Write your post..."></textarea><br><br>
+    <input type="file" id="mediaInput"><br><br>
+    <button onclick="postWithMedia()">Post</button>
+
+    <h2>Community Posts</h2>
+    <div id="postContainer"></div>
+  </section>
+  <section class="contact-toolbar">
+    <h3>📬 Contact Us</h3>
+    <p>Have questions, feedback, or ideas? We’d love to hear from you!</p>
+    <ul>
+        <li>Email us at <a href="mailto:support@herbuddy.com">support@herbuddy.com</a></li>
+        <li><a href="https://instagram.com/herbuddy" target="_blank">📸 Instagram</a></li>
+        <li><a href="https://twitter.com/herbuddy" target="_blank">🐦 Twitter</a></li>
+    </ul>
+</section>
+   </main>
+
+  <footer class="footer">
+    &copy; 2025 HerBuddy Community. All rights reserved.
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

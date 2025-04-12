@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>herBuddy - AI Chatbot</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header class="main-header">
+    <h1 class="site-title">herBuddy</h1>
+    <img src="logo_herbuddy.png" alt="herBuddy Logo" class="logo" />
+  </header>
+
+  <!-- Top-left vertical toolbar -->
+  <nav class="top-left-toolbar">
+    <a href="index.html">🏠 Home</a>
+    <a href="community.html">💬 Community</a>
+    <a href="assess.html">📝 Self Assessment</a>
+    <a href="faq.html">❓ Facts & FAQs</a>
+    <a href="game.html">🎮 Games </a>
+  </nav>
+
+  <main class="content">
+    <section class="about-us welcome-card">
+      <div class="welcome-text">
+        <h2>Welcome to HerBuddy's AI Chatbot 🤖</h2>
+        <p>Ask anything about periods, PCOD, hygiene, or self-care. We're here to help!</p>
+      </div>
+    </section>
+
+    <section class="horizontal-card" style="flex-direction: column; align-items: stretch;">
+      <div id="chatBox" style="max-height: 60vh; overflow-y: auto; scroll-behavior: smooth; background-color: #fff; padding: 20px; border-radius: 12px; margin-bottom: 1rem;"></div>
+      <div style="display: flex; gap: 1rem;">
+        <input type="text" id="userInput" placeholder="Type your question..."
+               style="flex: 1; padding: 12px 16px; border-radius: 9999px; border: 1px solid #f98fb0; outline: none;" />
+        <button onclick="sendMessage()"
+                style="background-color: #f53e78;color:white: 12px 24px; border-radius: 9999px; font-weight: bold; border: none; cursor: pointer;">
+          Send
+        </button>
+      </div>
+    </section>
+    <section class="contact-toolbar">
+      <h3>📬 Contact Us</h3>
+      <p>Have questions, feedback, or ideas? We’d love to hear from you!</p>
+      <ul>
+          <li>Email us at <a href="mailto:support@herbuddy.com">support@herbuddy.com</a></li>
+          <li><a href="https://instagram.com/herbuddy" target="_blank">📸 Instagram</a></li>
+          <li><a href="https://twitter.com/herbuddy" target="_blank">🐦 Twitter</a></li>
+      </ul>
+  </section>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2025 herBuddy. All rights reserved.</p>
+  </footer>
+
+  <script>
+    async function sendMessage() {
+      const input = document.getElementById("userInput");
+      const chatBox = document.getElementById("chatBox");
+      const message = input.value.trim();
+      if (!message) return;
+  
+      // Show user message
+      chatBox.innerHTML += `<div><strong>You:</strong> ${message}</div>`;
+      input.value = "";
+      chatBox.scrollTop = chatBox.scrollHeight;
+  
+      try {
+        const response = await fetch("/chat", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ message })
+        });
+  
+        const data = await response.json();
+  
+        // Show bot reply
+        chatBox.innerHTML += `<div><strong>HerBuddy:</strong> ${data.reply}</div>`;
+        chatBox.scrollTop = chatBox.scrollHeight;
+      } catch (error) {
+        chatBox.innerHTML += `<div style="color: red;"><strong>HerBuddy:</strong> Sorry, something went wrong.</div>`;
+      }
+    }
+  </script>
+  
+</body>
+</html>

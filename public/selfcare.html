@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Self-Care Spinner | herBuddy</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet" />
+  <style>
+    .spinner-section {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .wheel {
+      width: 300px;
+      height: 300px;
+      border: 10px solid #ff80ab;
+      border-radius: 50%;
+      margin: 30px auto;
+      position: relative;
+      transition: transform 4s ease-out;
+    }
+
+    .wheel:after {
+      content: "🎯";
+      position: absolute;
+      top: -30px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 2rem;
+    }
+
+    .spin-btn {
+      background-color: #ff80ab;
+      color: white;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 12px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+
+    .spin-btn:hover {
+      background-color: #ff4d88;
+    }
+
+    .result {
+      margin-top: 30px;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #cc3366;
+    }
+  </style>
+</head>
+<body>
+  <header class="main-header">
+    <h1 class="site-title">herBuddy</h1>
+    <img src="logo_herbuddy.png" alt="herBuddy Logo" class="logo" />
+  </header>
+
+  <nav class="top-left-toolbar">
+    <a href="index.html" class="active">🏠 Home</a>
+        <a href="chatbot.html">🤖 AI Bot</a>
+        <a href="community.html">💬 Community</a>
+        <a href="assess.html">📝 Self Assessment</a>
+        <a href="faq.html">❓ Facts & FAQs</a>
+        <a href="game.html">🎮 Games </a>
+  </nav>
+
+  <main class="content">
+    <section class="spinner-section welcome-card">
+      <h2 style="color: #d63384;">🎡 Self-Care Spinner</h2>
+      <p>Feeling a little off? Spin the wheel and treat yourself to a sweet self-care suggestion! 💖</p>
+
+      <div class="wheel" id="wheel"></div>
+      <button class="spin-btn" onclick="spinWheel()">Spin Me!</button>
+      <div class="result" id="result"></div>
+    </section>
+
+    <section class="contact-toolbar">
+      <h3>📬 Contact Us</h3>
+      <p>Have questions, feedback, or ideas? We’d love to hear from you!</p>
+      <ul>
+        <li>Email us at <a href="mailto:support@herbuddy.com">support@herbuddy.com</a></li>
+        <li><a href="https://instagram.com/herbuddy" target="_blank">📸 Instagram</a></li>
+        <li><a href="https://twitter.com/herbuddy" target="_blank">🐦 Twitter</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2025 herBuddy. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const suggestions = [
+      "Drink warm tea 🍵",
+      "Stretch for 2 mins 🧘",
+      "Text a friend 💬",
+      "Watch your comfort show 🎬",
+      "Take deep breaths 🌬️",
+      "Write down your thoughts ✍️",
+      "Listen to calming music 🎧",
+      "Take a short walk 🚶‍♀️",
+      "Wrap yourself in a blanket 🛌",
+      "Compliment yourself 💖"
+    ];
+
+    const wheel = document.getElementById("wheel");
+    const result = document.getElementById("result");
+
+    function spinWheel() {
+      const angle = 360 * 5 + Math.floor(Math.random() * 360);
+      wheel.style.transform = `rotate(${angle}deg)`;
+
+      const index = Math.floor(Math.random() * suggestions.length);
+      setTimeout(() => {
+        result.textContent = suggestions[index];
+      }, 4000); // matches transition time
+    }
+  </script>
+</body>
+</html>

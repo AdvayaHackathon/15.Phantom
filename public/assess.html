@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>herBuddy - Self Assessment</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet" />
+  <style>
+    .quiz-question {
+      background-color: #ffe2ec;
+      padding: 15px 20px;
+      border-radius: 1rem;
+      margin-bottom: 15px;
+      box-shadow: 0 4px 8px rgba(249, 143, 176, 0.2);
+      transition: transform 0.2s;
+    }
+
+    .quiz-question:hover {
+      transform: scale(1.01);
+    }
+
+    .quiz-question label {
+      display: inline-block;
+      margin-top: 10px;
+      cursor: pointer;
+      padding: 8px 12px;
+      background-color: white;
+      border-radius: 20px;
+      border: 2px solid #f98fb0;
+      margin-right: 10px;
+      transition: background-color 0.2s, color 0.2s;
+    }
+
+    .quiz-question input[type="radio"]:checked + label {
+      background-color: #f98fb0;
+      color: white;
+    }
+
+    .quiz-question input[type="radio"] {
+      display: none;
+    }
+
+    .quiz-intro {
+      background-color: #ffe6f0;
+      padding: 20px;
+      border-radius: 1rem;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      color: #4a004a;
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    #questionsContainer {
+      background-color: #ffe6f0;
+      padding: 20px;
+      border-radius: 1rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      color: #4a004a;
+      width: 1100px;
+      margin: 0 auto;
+    }
+
+    .quiz-question p {
+      font-size: 1.1rem;
+    }
+  </style>
+</head>
+<body>
+  <header class="main-header">
+    <h1 class="site-title">herBuddy</h1>
+    <img src="logo_herbuddy.png" alt="herBuddy Logo" class="logo" />
+  </header>
+
+  <!-- Top-left vertical toolbar -->
+  <nav class="top-left-toolbar">
+    <a href="index.html">🏠 Home</a>
+    <a href="chatbot.html">🤖 AI Bot</a>
+    <a href="community.html">💬 Community</a>
+    <a href="faq.html">❓ Facts & FAQs</a>
+    <a href="game.html">🎮 Games </a>
+  </nav>
+
+  <main class="content">
+    <section class="about-us welcome-card">
+      <div class="welcome-text">
+        <h2>📝 Self Assessment for PCOD/PCOS</h2>
+        <div class="quiz-intro">
+          <p><strong>Answer the questions below honestly.</strong></p>
+          <p>This self-assessment is designed to help you reflect on common PCOS/PCOD symptoms. It offers guidance — not a medical diagnosis.</p>
+        </div>
+      </div>
+    </section>
+
+    <form id="quizForm" class="horizontal-card" style="flex-direction: column; gap: 1rem;">
+      <div id="questionsContainer"></div>
+
+      <button type="submit"
+              style="background-color: #f53e78; color:white; padding: 12px 24px; border-radius: 9999px; font-weight: bold; border: none; cursor: pointer; margin-top: 20px;">
+        Submit Assessment
+      </button>
+    </form>
+
+    <section id="resultMessage" style="display: none; margin-top: 2rem; font-size: 1.2rem; font-weight: bold;"></section>
+    <section class="contact-toolbar">
+        <h3>📬 Contact Us</h3>
+        <p>Have questions, feedback, or ideas? We’d love to hear from you!</p>
+        <ul>
+            <li>Email us at <a href="mailto:support@herbuddy.com">support@herbuddy.com</a></li>
+            <li><a href="https://instagram.com/herbuddy" target="_blank">📸 Instagram</a></li>
+            <li><a href="https://twitter.com/herbuddy" target="_blank">🐦 Twitter</a></li>
+        </ul>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2025 herBuddy. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const questions = [
+      { q: "Do you experience irregular periods?", type: "major" },
+      { q: "Do you have excessive facial or body hair?", type: "major" },
+      { q: "Do you suffer from severe acne?", type: "major" },
+      { q: "Have you noticed significant weight gain recently?", type: "major" },
+      { q: "Do you feel tired or low on energy often?", type: "minor" },
+      { q: "Do you have trouble sleeping or feel restless at night?", type: "minor" },
+      { q: "Do you feel anxious or moody without a clear reason?", type: "minor" },
+      { q: "Do you have difficulty losing weight despite diet/exercise?", type: "major" },
+      { q: "Have you experienced hair thinning or hair loss?", type: "major" },
+      { q: "Do you often feel bloated or have stomach discomfort?", type: "minor" },
+      { q: "Do you crave sugar or carbs frequently?", type: "minor" },
+      { q: "Do you suffer from headaches, especially around periods?", type: "minor" },
+      { q: "Have you had trouble conceiving or irregular ovulation?", type: "major" },
+      { q: "Do you have dark patches on skin (neck, underarms)?", type: "major" },
+      { q: "Do you experience pelvic pain outside periods?", type: "minor" },
+    ];
+
+    const container = document.getElementById("questionsContainer");
+    questions.forEach((item, index) => {
+      const block = document.createElement("div");
+      block.classList.add("quiz-question");
+
+      block.innerHTML = `
+        <p><strong>Q${index + 1}:</strong> ${item.q}</p>
+        <div>
+          <input type="radio" id="q${index}y" name="q${index}" value="${item.type === 'major' ? 2 : 1}">
+          <label for="q${index}y">Yes</label>
+
+          <input type="radio" id="q${index}n" name="q${index}" value="0">
+          <label for="q${index}n">No</label>
+        </div>
+      `;
+
+      container.appendChild(block);
+    });
+
+    document.getElementById("quizForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      let score = 0;
+      questions.forEach((_, i) => {
+        const selected = document.querySelector(`input[name="q${i}"]:checked`);
+        if (selected) score += parseInt(selected.value);
+      });
+
+      const result = document.getElementById("resultMessage");
+      result.style.display = "block";
+
+      if (score >= 20) {
+        result.textContent = "⚠ Based on your responses, we recommend visiting a gynecologist for a proper evaluation.";
+      } else if (score >= 10) {
+        result.textContent = "🩷 Some symptoms indicate mild PCOD/PCOS risk. It's good to monitor and consult a doctor if needed.";
+      } else {
+        result.textContent = "✅ Your responses do not show strong PCOD/PCOS indicators. Stay aware and keep taking care of yourself!";
+      }
+    });
+  </script>
+</body>
+</html>
